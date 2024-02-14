@@ -1,0 +1,98 @@
+square root of dictionary size (143091) = 378
+
+should have 378 even buckets
+
+first idea:
+    13 most common letters are divided into 26 second letters
+    13 least common letters are just first letter alphabetical
+
+    13 * 26 + 13 = 351 close enough to 378
+
+second idea:
+    5 least common letters are combined into one index
+    10 most common letters are given 5 - 10 second letter indexes and 1 blank index
+    6 letters in between are given a vowel second letter indexes if space is available
+
+    total indexes: 128
+
+    best letters: 72 indexes
+        S - Sa, Se, Si, So, Su, Sh, Sc, Sl, S
+        C - Ca, Ce, Ci, Co, Cu, Ch, Cr, Cl, C
+        P - Pa, Pe, Pi, Po, Pu, Ph, Pr, Pl, P
+        D - Da, De, Di, Do, Du, Dr, D
+        B - Ba, Be, Bi, Bo, Bu, Br, Bl, B
+        R - Ra, Re, Ri, Ro, Ru, R
+        A - As, Ar, An, At, Al, A
+        M - Ma, Me, Mi, Mo, Mu, M
+        T - Ta, Te, Ti, To, Tu, T
+        F - Fa, Fe, Fi, Fo, Fu, F
+    middle letters: 50 indexes
+        E - Ex, E
+        I - In, Im, I', I
+        H - Ha, He, Hi, Ho, Hu, H
+        G - Ga, Ge, Gi, Go, Gu, G
+        L - La, Le, Li, Lo, Lu, L
+        U - Un, U
+        W - Wa, We, Wi, Wo, Wu, W
+        O - O
+        N - Na, Ne, Ni, No, Nu, N
+        V - Va, Ve, Vi, Vo, Vu, V
+        J - Ja, Je, Ji, Jo, Ju, J
+    worst letters: 6 indexes
+        K - K
+        Q - Q
+        Y - Y
+        Z - Z
+        X - X
+
+        00  a
+        01  aa
+        02  ae
+        03  ai
+        04  ao
+        05  au
+        06  b
+        07  ba
+        08  be
+        09  bi
+        10  bo
+        11  bu
+        12  c
+        13  ca
+        14  ce
+        15  ci
+        16  co
+        17  cu
+        18  d
+        19  da
+
+
+    // check first letter
+    char first = tolower(input[0]);
+    // check second letter
+    char second = tolower(input[1]);
+    // if second = vowel
+    if (second == 65)
+    {
+        index = ((first - 65) * 6) + 1;
+    }
+    else if (second == 69)
+    {
+        index = ((first - 65) * 6) + 2;
+    }
+    else if (second == 73)
+    {
+        index = ((first - 65) * 6) + 3;
+    }
+    else if (second == 79)
+    {
+        index = ((first - 65) * 6) + 4;
+    }
+    else if (second == 85)
+    {
+        index = ((first - 65) * 6) + 5;
+    }
+    else
+    {
+        index = (first - 65) * 6;
+    }

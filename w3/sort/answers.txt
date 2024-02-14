@@ -1,0 +1,18 @@
+sort1 uses: bubble
+
+How do you know?: very fast on pre-sorted
+
+sort2 uses: merge
+
+How do you know?: fastest and consistent across file types
+
+sort3 uses: selection
+
+How do you know?: performs better with random than reversed
+
+
+
+---------- random 10000 --- reversed 10000 ----- sorted 10000 ----- best
+sort1    |    0.315s    |   sort1: 0.276s   |   sort1: 0.092s   |
+sort2:   |    0.089s    |   sort2: 0.087s   |   sort2: 0.065s   |
+sort3:   |    0.152s    |   sort3: 0.181s   |   sort3: 0.192s   |
